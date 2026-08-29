@@ -4,7 +4,18 @@ export default defineConfig({
   lang: 'zh-CN',
   title: 'Noah',
   description: 'Noah 的个人站——记录日常、分享项目、输出文档',
-  head: [['link', { rel: 'icon', type: 'image/svg+xml', href: '/avatar.svg' }]],
+  head: [
+    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/avatar.svg' }],
+    ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
+    ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
+    [
+      'link',
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700;900&display=swap'
+      }
+    ]
+  ],
   lastUpdated: true,
   themeConfig: {
     nav: [
