@@ -11,7 +11,7 @@ hero:
       link: /about
     - theme: alt
       text: 查看项目
-      link: /projects
+      link: /projects/
     - theme: alt
       text: 日常动态
       link: /daily
