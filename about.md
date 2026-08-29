@@ -19,4 +19,4 @@
 
 ## 关于本站的实现
 
-本站基于 [VitePress](https://vitepress.dev/zh/) 构建，托管在 GitHub Pages 上，推送到 main 分支后自动部署。旧版 Hexo 项目备份在仓库的 `_hexo_backup/` 目录（仅本地保留）。
+本站基于 [VitePress](https://vitepress.dev/zh/) 构建，托管在 GitHub Pages 上，推送到 main 分支后自动部署。

@@ -4,5 +4,6 @@ Thumbs.db
 node_modules/
 .vitepress/cache/
 .vitepress/dist/
-_hexo_backup/
+*.timestamp-*.mjs
+.workbuddy/
 .zcode/
