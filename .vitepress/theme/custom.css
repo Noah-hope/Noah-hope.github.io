@@ -1,0 +1,96 @@
+/* ===== 日常动态时间流 ===== */
+.moment {
+  position: relative;
+  padding: 0 0 24px 28px;
+  border-left: 2px solid var(--vp-c-divider);
+  margin-left: 8px;
+}
+.moment:last-of-type {
+  padding-bottom: 4px;
+}
+.moment::before {
+  content: '';
+  position: absolute;
+  left: -7px;
+  top: 6px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--vp-c-brand-1);
+  box-shadow: 0 0 0 4px var(--vp-c-bg);
+}
+.moment-date {
+  font-size: 13px;
+  color: var(--vp-c-text-3);
+  font-family: var(--vp-font-family-mono);
+  margin-bottom: 6px;
+}
+.moment-body p {
+  margin: 0;
+  line-height: 1.75;
+}
+
+/* ===== 博客文章列表 ===== */
+.blog-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin: 24px 0;
+}
+.post-card {
+  display: block;
+  padding: 16px 20px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 10px;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+.post-card:hover {
+  border-color: var(--vp-c-brand-1);
+  box-shadow: 0 2px 12px var(--vp-c-brand-soft);
+  text-decoration: none;
+}
+.post-card h3 {
+  margin: 6px 0;
+  border-top: none;
+  padding-top: 0;
+  font-size: 17px;
+}
+.post-card:hover h3 {
+  color: var(--vp-c-brand-1);
+}
+.post-meta {
+  font-size: 13px;
+  color: var(--vp-c-text-3);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.post-tag {
+  display: inline-block;
+  padding: 1px 8px;
+  border-radius: 10px;
+  font-size: 12px;
+  background: var(--vp-c-brand-soft);
+  color: var(--vp-c-brand-1);
+}
+.post-excerpt {
+  margin: 6px 0 0;
+  color: var(--vp-c-text-2);
+  font-size: 14px;
+}
+.post-excerpt p {
+  margin: 0;
+}
+
+/* ===== 首页最近动态区块 ===== */
+.home-section {
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 0 24px 48px;
+}
+.home-more {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 500;
+}
