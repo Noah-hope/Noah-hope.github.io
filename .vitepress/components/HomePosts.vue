@@ -5,15 +5,21 @@ const recent = posts.slice(0, 3)
 </script>
 
 <template>
-  <div class="blog-list">
-    <a v-for="p in recent" :key="p.url" :href="p.url" class="post-card">
-      <div class="post-meta">
-        <span>{{ p.date }}</span>
-        <span class="dot">·</span>
-        <span>{{ p.minutes }} min</span>
+  <div class="home-posts">
+    <a v-for="(p, i) in recent" :key="p.url" :href="p.url" class="home-post-card"
+       :style="{ animationDelay: `${i * 90}ms` }">
+      <span class="home-post-number">0{{ i + 1 }}</span>
+      <div class="home-post-main">
+        <div class="home-post-meta">
+          <time>{{ p.date }}</time><span>{{ p.minutes }} MIN READ</span>
+        </div>
+        <h3>{{ p.title }}</h3>
+        <p v-if="p.summary">{{ p.summary }}</p>
+        <div class="home-post-tags">
+          <span v-for="t in p.tags" :key="t"># {{ t }}</span>
+        </div>
       </div>
-      <h3>{{ p.title }}</h3>
-      <div v-if="p.excerpt" class="post-excerpt" v-html="p.excerpt"></div>
+      <span class="card-arrow">↗</span>
     </a>
     <p v-if="!recent.length" class="empty-tip">还没有文章。</p>
   </div>

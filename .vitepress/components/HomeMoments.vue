@@ -5,23 +5,16 @@ const recent = moments.slice(0, 3)
 </script>
 
 <template>
-  <div class="moments">
-    <a
-      v-for="(m, i) in recent"
-      :key="m.url"
-      :href="m.url"
-      class="moment-card"
-      :style="{ animationDelay: `${i * 60}ms` }"
-    >
-      <div class="moment-head">
-        <img class="moment-avatar" src="/avatar.svg" alt="Noah" />
-        <div>
-          <div class="moment-name">Noah</div>
-          <div class="moment-time">{{ m.date }}</div>
-        </div>
+  <div class="home-moments">
+    <a v-for="(m, i) in recent" :key="m.url" :href="m.url" class="home-moment-card"
+       :style="{ animationDelay: `${i * 90}ms` }">
+      <div class="moment-date"><strong>{{ m.day }}</strong><span>{{ m.yearMonth }}</span></div>
+      <div class="moment-copy">
+        <span class="moment-kind">LIFE NOTE</span>
+        <h3>{{ m.title }}</h3>
+        <p>{{ m.preview }}</p>
       </div>
-      <p class="moment-text">{{ m.preview }}</p>
-      <span class="moment-more">阅读全文 →</span>
+      <span class="card-arrow">→</span>
     </a>
     <p v-if="!recent.length" class="empty-tip">还没有动态。</p>
   </div>

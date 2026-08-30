@@ -1,6 +1,7 @@
 ---
 title: Noah-Blog 个人站
-desc: 我的同时也是我的博客——一个集日常动态、项目展示、文档输出于一体的个人站点。
+icon: 🌐
+desc: 我的个人主页，同时也是博客——一个集日常记录、项目展示和技术沉淀于一体的个人站点。
 tech:
   - VitePress
   - Vue 3
@@ -8,6 +9,8 @@ tech:
   - GitHub Pages
 status: active
 date: 2026-08-29
+site: https://noah-hope.github.io/
+repo: https://github.com/Noah-hope/Noah-hope.github.io
 ---
 
 ## 项目介绍

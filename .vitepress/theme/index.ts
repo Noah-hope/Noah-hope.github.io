@@ -6,9 +6,11 @@ import HomeMoments from '../components/HomeMoments.vue'
 import DailyFeed from '../components/DailyFeed.vue'
 import BlogList from '../components/BlogList.vue'
 import ProjectCards from '../components/ProjectCards.vue'
+import Layout from './Layout.vue'
 
 export default {
   extends: DefaultTheme,
+  Layout,
   enhanceApp({ app }) {
     app.component('HomeHero', HomeHero)
     app.component('HomePosts', HomePosts)

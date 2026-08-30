@@ -1,46 +1,66 @@
 <script setup>
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 import { data as posts } from '../data/blog.data.js'
 
 const props = defineProps({
-  limit: { type: Number, default: 0 }
+  limit: { type: Number, default: 0 },
+  showCount: { type: Boolean, default: true }
 })
 
+const query = ref('')
 const list = computed(() => (props.limit > 0 ? posts.slice(0, props.limit) : posts))
+const filtered = computed(() => {
+  const keyword = query.value.trim().toLowerCase()
+  if (!keyword) return list.value
+  return list.value.filter((post) =>
+    [post.title, post.summary, ...post.tags].join(' ').toLowerCase().includes(keyword)
+  )
+})
 
-/** 按年份分组，保持倒序 */
 const groups = computed(() => {
   const map = new Map()
-  for (const p of list.value) {
-    if (!map.has(p.year)) map.set(p.year, [])
-    map.get(p.year).push(p)
+  for (const post of filtered.value) {
+    if (!map.has(post.year)) map.set(post.year, [])
+    map.get(post.year).push(post)
   }
   return [...map.entries()].map(([year, items]) => ({ year, items }))
 })
 </script>
 
 <template>
-  <div>
-    <section v-for="g in groups" :key="g.year" class="year-group">
-      <h2 class="year-label">
-        {{ g.year }}
-        <small>{{ g.items.length }} 篇</small>
-      </h2>
-      <div class="blog-list">
-        <a v-for="p in g.items" :key="p.url" :href="p.url" class="post-card">
-          <div class="post-meta">
-            <span>{{ p.date }}</span>
-            <span class="dot">·</span>
-            <span>{{ p.minutes }} min</span>
-            <span v-for="t in p.tags" :key="t" class="post-tag">#{{ t }}</span>
+  <div class="post-flow">
+    <div class="flow-toolbar">
+      <p v-if="showCount">
+        收录 {{ posts.length }} 篇 · 共约 {{ posts.reduce((sum, post) => sum + post.minutes, 0) }} 分钟阅读
+      </p>
+      <label class="article-search">
+        <span>⌕</span>
+        <input v-model="query" type="search" placeholder="搜索标题、摘要或标签" />
+      </label>
+    </div>
+
+    <section v-for="group in groups" :key="group.year" class="year-block">
+      <aside class="year-aside">
+        <span class="year-num">{{ group.year }}</span>
+        <span class="year-count">{{ group.items.length }} 篇沉淀</span>
+      </aside>
+      <div class="year-items">
+        <a v-for="(post, index) in group.items" :key="post.url" :href="post.url" class="post-row"
+           :style="{ animationDelay: `${Math.min(index, 8) * 70}ms` }">
+          <div class="post-row-meta">
+            <time>{{ post.date }}</time>
+            <span>{{ post.minutes }} MIN READ</span>
           </div>
-          <h3>{{ p.title }}</h3>
-          <div v-if="p.excerpt" class="post-excerpt" v-html="p.excerpt"></div>
+          <h3 class="post-row-title">{{ post.title }}</h3>
+          <p v-if="post.summary" class="post-row-excerpt">{{ post.summary }}</p>
+          <div class="post-row-bottom">
+            <div><span v-for="tag in post.tags" :key="tag" class="post-tag"># {{ tag }}</span></div>
+            <span class="row-arrow">阅读全文 <i>→</i></span>
+          </div>
         </a>
       </div>
     </section>
-    <p v-if="!posts.length" class="empty-tip">
-      还没有文章。在 blog/posts/ 目录下新建 md 文件即可发布。
-    </p>
+
+    <p v-if="!filtered.length" class="empty-tip">没有找到匹配的文章。</p>
   </div>
 </template>

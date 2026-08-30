@@ -11,14 +11,17 @@ const STATUS_MAP = {
 export default createContentLoader('projects/*.md', {
   transform(raw) {
     return raw
-      .filter(({ url }) => !url.endsWith('/'))
+      .filter(({ url, frontmatter }) => !url.endsWith('/') && !frontmatter?.draft)
       .map(({ url, frontmatter }) => {
         const status = STATUS_MAP[frontmatter?.status] || STATUS_MAP.active
         return {
           url,
           title: frontmatter?.title || url,
+          icon: frontmatter?.icon || '📦',
           desc: frontmatter?.desc || '',
           tech: Array.isArray(frontmatter?.tech) ? frontmatter.tech : [],
+          site: frontmatter?.site || '',
+          repo: frontmatter?.repo || '',
           statusLabel: status.label,
           statusBadge: status.badge,
           date: frontmatter?.date || ''

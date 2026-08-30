@@ -9,7 +9,8 @@ function formatDate(d) {
 function stripHtml(html = '') {
   return html
     .replace(/<[^>]*>/g, '')
-    .replace(/\s+/g, '')
+    .replace(/&[a-z]+;/gi, ' ')
+    .replace(/\s+/g, ' ')
     .trim()
 }
 
@@ -30,13 +31,13 @@ export default createContentLoader('blog/posts/*.md', {
         (a, b) =>
           new Date(b.frontmatter?.date || 0) - new Date(a.frontmatter?.date || 0)
       )
-      .map(({ url, frontmatter, excerpt, html }) => ({
+      .map(({ url, frontmatter, html }) => ({
         url,
         title: frontmatter?.title || url,
         date: formatDate(frontmatter?.date),
         year: formatDate(frontmatter?.date).slice(0, 4) || '早期',
         tags: Array.isArray(frontmatter?.tags) ? frontmatter.tags : [],
-        excerpt,
+        summary: frontmatter?.description || stripHtml(html).slice(0, 180),
         minutes: readMinutes(html)
       }))
   }

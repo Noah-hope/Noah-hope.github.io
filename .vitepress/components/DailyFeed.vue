@@ -2,33 +2,35 @@
 import { data as moments } from '../data/daily.data.js'
 
 const props = defineProps({
-  limit: { type: Number, default: 0 }
+  limit: { type: Number, default: 0 },
+  showCount: { type: Boolean, default: true }
 })
 
 const list = props.limit > 0 ? moments.slice(0, props.limit) : moments
 </script>
 
 <template>
-  <div class="moments">
-    <a
-      v-for="(m, i) in list"
-      :key="m.url"
-      :href="m.url"
-      class="moment-card"
-      :style="{ animationDelay: `${Math.min(i, 8) * 60}ms` }"
-    >
-      <div class="moment-head">
-        <img class="moment-avatar" src="/avatar.svg" alt="Noah" />
-        <div>
-          <div class="moment-name">Noah</div>
-          <div class="moment-time">{{ m.date }}</div>
-        </div>
-      </div>
-      <p class="moment-text">{{ m.preview }}</p>
-      <span class="moment-more">阅读全文 →</span>
-    </a>
-    <p v-if="!moments.length" class="empty-tip">
-      还没有动态。在 daily/p/ 目录下新建一个 md 文件即可发布第一条动态。
-    </p>
+  <div class="daily-feed">
+    <p v-if="showCount" class="flow-count">共 {{ moments.length }} 篇生活手记 · 按时间倒序</p>
+    <ol class="daily-list">
+      <li v-for="(moment, index) in list" :key="moment.url" class="feed-li"
+          :style="{ animationDelay: `${Math.min(index, 8) * 80}ms` }">
+        <a :href="moment.url" class="daily-card">
+          <div class="daily-date"><strong>{{ moment.day }}</strong><span>{{ moment.yearMonth }}</span></div>
+          <div class="daily-card-body">
+            <div class="daily-card-kicker">
+              <span>LIFE NOTE</span><i></i><span>{{ moment.minutes }} MIN READ</span>
+            </div>
+            <h2>{{ moment.title }}</h2>
+            <p>{{ moment.preview }}</p>
+            <div class="daily-card-footer">
+              <div><span v-for="tag in moment.tags" :key="tag"># {{ tag }}</span></div>
+              <span>打开这段记忆 <i>→</i></span>
+            </div>
+          </div>
+        </a>
+      </li>
+    </ol>
+    <p v-if="!moments.length" class="empty-tip">还没有日常文章。</p>
   </div>
 </template>

@@ -1,11 +1,13 @@
 ---
 title: 示例项目模板
+icon: 🧩
 desc: 这是一个项目模板，复制它改成你自己的项目即可；这个示例本身可以删除。
 tech:
   - 技术栈一
   - 技术栈二
 status: planned
 date: 2026-08-29
+draft: true
 ---
 
 ## 项目介绍
