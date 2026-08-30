@@ -5,9 +5,7 @@ title: 日常
 
 <main class="listing-page daily-page">
   <header class="listing-hero">
-    <p class="listing-kicker">LIFE · MEMORY · ORDINARY DAYS</p>
-    <h1>生活手记<span>.</span></h1>
-    <p>记录日常里的故事、感受和偶然闪过的念头。<br>生活不是技术之外的部分，生活就是生活本身。</p>
+    <h1>日常</h1>
   </header>
   <DailyFeed />
 </main>

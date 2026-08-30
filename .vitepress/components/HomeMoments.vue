@@ -10,7 +10,6 @@ const recent = moments.slice(0, 3)
        :style="{ animationDelay: `${i * 90}ms` }">
       <div class="moment-date"><strong>{{ m.day }}</strong><span>{{ m.yearMonth }}</span></div>
       <div class="moment-copy">
-        <span class="moment-kind">LIFE NOTE</span>
         <h3>{{ m.title }}</h3>
         <p>{{ m.preview }}</p>
       </div>

@@ -31,7 +31,7 @@ const groups = computed(() => {
   <div class="post-flow">
     <div class="flow-toolbar">
       <p v-if="showCount">
-        收录 {{ posts.length }} 篇 · 共约 {{ posts.reduce((sum, post) => sum + post.minutes, 0) }} 分钟阅读
+        共 {{ posts.length }} 篇
       </p>
       <label class="article-search">
         <span>⌕</span>
@@ -49,7 +49,7 @@ const groups = computed(() => {
            :style="{ animationDelay: `${Math.min(index, 8) * 70}ms` }">
           <div class="post-row-meta">
             <time>{{ post.date }}</time>
-            <span>{{ post.minutes }} MIN READ</span>
+            <span>约 {{ post.minutes }} 分钟</span>
           </div>
           <h3 class="post-row-title">{{ post.title }}</h3>
           <p v-if="post.summary" class="post-row-excerpt">{{ post.summary }}</p>

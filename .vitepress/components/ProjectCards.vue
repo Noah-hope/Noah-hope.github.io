@@ -6,7 +6,7 @@ defineProps({ showCount: { type: Boolean, default: true } })
 
 <template>
   <div class="shop">
-    <p v-if="showCount" class="flow-count">共 {{ projects.length }} 个公开项目</p>
+    <p v-if="showCount" class="flow-count">共 {{ projects.length }} 个</p>
     <div class="shop-grid">
       <article v-for="(project, index) in projects" :key="project.url" class="shop-card"
                :style="{ animationDelay: `${index * 80}ms` }">

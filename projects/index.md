@@ -5,9 +5,7 @@ title: 项目
 
 <main class="listing-page projects-page">
   <header class="listing-hero">
-    <p class="listing-kicker">DESIGN · CODE · SHIP</p>
-    <h1>项目橱窗<span>.</span></h1>
-    <p>从一个念头开始，经过设计与代码，最后变成真正可以访问的作品。</p>
+    <h1>项目</h1>
   </header>
   <ProjectCards />
 </main>

@@ -11,16 +11,13 @@ const list = props.limit > 0 ? moments.slice(0, props.limit) : moments
 
 <template>
   <div class="daily-feed">
-    <p v-if="showCount" class="flow-count">共 {{ moments.length }} 篇生活手记 · 按时间倒序</p>
+    <p v-if="showCount" class="flow-count">共 {{ moments.length }} 篇</p>
     <ol class="daily-list">
       <li v-for="(moment, index) in list" :key="moment.url" class="feed-li"
           :style="{ animationDelay: `${Math.min(index, 8) * 80}ms` }">
         <a :href="moment.url" class="daily-card">
           <div class="daily-date"><strong>{{ moment.day }}</strong><span>{{ moment.yearMonth }}</span></div>
           <div class="daily-card-body">
-            <div class="daily-card-kicker">
-              <span>LIFE NOTE</span><i></i><span>{{ moment.minutes }} MIN READ</span>
-            </div>
             <h2>{{ moment.title }}</h2>
             <p>{{ moment.preview }}</p>
             <div class="daily-card-footer">

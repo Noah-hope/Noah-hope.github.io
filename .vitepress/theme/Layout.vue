@@ -24,9 +24,7 @@ const formatDate = (value) => {
     <template #doc-before>
       <header v-if="isArticle" class="article-hero">
         <a :href="isDaily ? '/daily/' : '/blog/'" class="article-back">← {{ isDaily ? '返回日常' : '返回博客' }}</a>
-        <p class="article-eyebrow">{{ isDaily ? 'LIFE · MOMENT' : 'LEARN · BUILD · SHARE' }}</p>
         <h1>{{ frontmatter.title || (isDaily ? '生活手记' : '技术文章') }}</h1>
-        <p v-if="frontmatter.description" class="article-description">{{ frontmatter.description }}</p>
         <div class="article-meta">
           <time>{{ formatDate(frontmatter.date) }}</time>
           <span v-for="tag in (frontmatter.tags || [])" :key="tag"># {{ tag }}</span>
