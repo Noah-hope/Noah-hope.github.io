@@ -16,7 +16,7 @@
       <h1>Noah</h1>
       <div class="yun-intro">
         <strong>Noah 的个人小站</strong>
-        <p>记录学习、项目和日常。</p>
+        <p class="yun-quote">“保持好奇，持续创造。”</p>
       </div>
 
       <nav class="yun-socials" aria-label="社交链接">
