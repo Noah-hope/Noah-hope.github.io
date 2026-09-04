@@ -5,7 +5,8 @@ export default defineConfig({
   title: 'Noah',
   description: 'Noah 的个人站——记录日常、分享项目、输出文档',
   head: [
-    ['link', { rel: 'icon', type: 'image/svg+xml', href: '/avatar.svg' }],
+    ['link', { rel: 'icon', type: 'image/png', href: '/noah-app-icon.png' }],
+    ['link', { rel: 'apple-touch-icon', href: '/noah-app-icon.png' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.googleapis.com' }],
     ['link', { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' }],
     [
