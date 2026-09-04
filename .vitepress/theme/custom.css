@@ -581,33 +581,29 @@ body { font-family: 'Google Sans Text', 'Segoe UI', 'Noto Sans SC', var(--vp-fon
 .home-hero.yun-home { min-height: calc(100vh - 64px); }
 .yun-socials a { width: 40px; height: 40px; }
 .yun-socials a img { width: 18px; height: 18px; }
-.yun-socials a:hover,
-.yun-socials a:focus-visible {
-  transform: translateY(-3px);
-  box-shadow: 0 3px 8px rgba(60, 64, 67, .16), 0 0 0 4px color-mix(in srgb, currentColor 10%, transparent);
+.home-hero.yun-home .yun-socials > a:hover,
+.home-hero.yun-home .yun-socials > a:focus,
+.home-hero.yun-home .yun-socials > a:focus-visible,
+.home-hero.yun-home .yun-socials > a:active {
+  border-color: var(--noah-line-strong) !important;
+  outline: none;
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 4px 10px rgba(60, 64, 67, .2);
 }
-.yun-socials a:nth-child(1):hover,
-.yun-socials a:nth-child(1):focus-visible {
+.home-hero.yun-home .yun-socials > a:nth-child(1):is(:hover, :focus, :focus-visible, :active) {
   color: var(--noah-accent) !important;
-  border-color: var(--noah-accent);
   background: var(--noah-blue-soft) !important;
 }
-.yun-socials a:nth-child(2):hover,
-.yun-socials a:nth-child(2):focus-visible {
+.home-hero.yun-home .yun-socials > a:nth-child(2):is(:hover, :focus, :focus-visible, :active) {
   color: var(--noah-red) !important;
-  border-color: var(--noah-red);
   background: var(--noah-red-soft) !important;
 }
-.yun-socials a:nth-child(3):hover,
-.yun-socials a:nth-child(3):focus-visible {
+.home-hero.yun-home .yun-socials > a:nth-child(3):is(:hover, :focus, :focus-visible, :active) {
   color: var(--noah-yellow) !important;
-  border-color: var(--noah-yellow);
   background: var(--noah-yellow-soft) !important;
 }
-.yun-socials a:nth-child(4):hover,
-.yun-socials a:nth-child(4):focus-visible {
+.home-hero.yun-home .yun-socials > a:nth-child(4):is(:hover, :focus, :focus-visible, :active) {
   color: var(--noah-green) !important;
-  border-color: var(--noah-green);
   background: var(--noah-green-soft) !important;
 }
 .yun-nav a { gap: 8px; }
