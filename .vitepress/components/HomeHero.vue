@@ -10,7 +10,7 @@
 
     <div class="yun-profile">
       <div class="yun-avatar">
-        <img src="/avatar.svg" alt="Noah 的头像" />
+        <img src="/noah-app-icon.png" alt="Noah 的卡通头像" />
         <span title="正在学习，也在认真生活"></span>
       </div>
       <h1>Noah</h1>
