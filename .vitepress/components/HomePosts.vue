@@ -17,7 +17,7 @@ const recent = posts.slice(0, 3)
           <span v-for="t in p.tags" :key="t"># {{ t }}</span>
         </div>
       </div>
-      <span class="card-arrow">↗</span>
+      <span class="card-arrow"><img src="/icons/arrow-outward.svg" alt="" /></span>
     </a>
     <p v-if="!recent.length" class="empty-tip">还没有文章。</p>
   </div>

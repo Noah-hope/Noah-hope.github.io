@@ -22,7 +22,7 @@ const list = props.limit > 0 ? moments.slice(0, props.limit) : moments
             <p>{{ moment.preview }}</p>
             <div class="daily-card-footer">
               <div><span v-for="tag in moment.tags" :key="tag"># {{ tag }}</span></div>
-              <span>打开这段记忆 <i>→</i></span>
+              <span>查看详情 <i><img src="/icons/arrow-forward.svg" alt="" /></i></span>
             </div>
           </div>
         </a>

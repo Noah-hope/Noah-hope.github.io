@@ -13,7 +13,7 @@ const recent = moments.slice(0, 3)
         <h3>{{ m.title }}</h3>
         <p>{{ m.preview }}</p>
       </div>
-      <span class="card-arrow">→</span>
+      <span class="card-arrow"><img src="/icons/arrow-forward.svg" alt="" /></span>
     </a>
     <p v-if="!recent.length" class="empty-tip">还没有动态。</p>
   </div>

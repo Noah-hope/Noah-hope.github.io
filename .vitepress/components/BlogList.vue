@@ -34,7 +34,7 @@ const groups = computed(() => {
         共 {{ posts.length }} 篇
       </p>
       <label class="article-search">
-        <span>⌕</span>
+        <span><img src="/icons/search.svg" alt="" /></span>
         <input v-model="query" type="search" placeholder="搜索标题、摘要或标签" />
       </label>
     </div>
@@ -55,7 +55,7 @@ const groups = computed(() => {
           <p v-if="post.summary" class="post-row-excerpt">{{ post.summary }}</p>
           <div class="post-row-bottom">
             <div><span v-for="tag in post.tags" :key="tag" class="post-tag"># {{ tag }}</span></div>
-            <span class="row-arrow">阅读全文 <i>→</i></span>
+            <span class="row-arrow">阅读全文 <i><img src="/icons/arrow-forward.svg" alt="" /></i></span>
           </div>
         </a>
       </div>

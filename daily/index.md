@@ -5,9 +5,8 @@ title: 日常
 
 <main class="listing-page daily-page">
   <header class="listing-hero">
-    <p class="listing-kicker">MOMENTS / JOURNAL</p>
     <h1>日常</h1>
-    <p>收藏生活里的小片段，也留下那些值得被记住的普通时刻。</p>
+    <p>这是一个日常展示页。</p>
   </header>
   <DailyFeed />
 </main>

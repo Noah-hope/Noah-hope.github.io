@@ -5,9 +5,8 @@ title: 项目
 
 <main class="listing-page projects-page">
   <header class="listing-hero">
-    <p class="listing-kicker">MADE / WITH CURIOSITY</p>
     <h1>项目</h1>
-    <p>从想法到实现，这里陈列正在发生和已经完成的作品。</p>
+    <p>这是一个项目展示页。</p>
   </header>
   <ProjectCards />
 </main>
